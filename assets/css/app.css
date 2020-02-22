@@ -28,3 +28,7 @@ body {
   font-size: 150%;
   margin-top:50px;
 }
+
+.row {
+    margin: 20px!important;
+}
