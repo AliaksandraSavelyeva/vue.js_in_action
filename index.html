@@ -85,6 +85,28 @@
                                 <input v-model="order.zip" class="form-control"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-6 boxes">
+                                <input type="checkbox" id="gift" value="true"
+                                       v-model="order.gift">
+                                <label for="gift">Ship As Gift?</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 boxes">
+                                <input type="radio" id="home" value="Home" v-model="order.method">
+                                <label for="home">Home</label>
+                                <input type="radio" id="business" value="Business" v-model="order.method">
+                                <label for="home">Business</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">
+                                    Place order
+                                </button>
+                            </div>
+                        </div>
                         <div class="col-md-12 verify">
                             <pre>
                                 First Name: {{order.firstName}}
@@ -93,6 +115,8 @@
                                 City: {{order.city}}
                                 Zip: {{order.zip}}
                                 State: {{order.state}}
+                                Method: {{ order.method }}
+                                Gift: {{ order.gift }}
                             </pre>
                         </div>
                     </div>
@@ -122,7 +146,9 @@
                         address: '',
                         city: '',
                         zip: '',
-                        state: ''
+                        state: '',
+                        method: 'Home',
+                        gift: false
                     }
                 },
                 filters: {
@@ -148,6 +174,9 @@
                     },
                     showCheckout() {
                         this.showProduct = this.showProduct ? false : true;
+                    },
+                    submitForm() {
+                        alert('Submitted');
                     }
                 },
                 computed: {
